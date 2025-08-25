@@ -333,10 +333,10 @@ def trigger_emergency_call(message=None):
         st.error(f"❌ Error making emergency call: {e}")
         return None
 
-def test_backend_connection():
-    """Test if backend is accessible"""
+def check_backend_status():
+    """Check if backend is accessible"""
     try:
-        response = requests.get(f"{API_BASE_URL}/", timeout=5)
+        response = requests.get(f"{API_BASE_URL}/docs", timeout=3)
         return response.status_code == 200
     except:
         return False
@@ -349,13 +349,13 @@ def main():
     st.title("🏥 AI Medical Consulting")
     st.markdown("Get medical insights powered by AI. *Always consult healthcare professionals for proper diagnosis.*")
     
-    # Test backend connection
-    if not test_backend_connection():
+    # Check backend connection
+    if not check_backend_status():
         st.error("❌ **Backend Connection Failed**")
         st.markdown("""
         **Please ensure the backend is running:**
         1. Open a terminal and navigate to the backend folder
-        2. Run: `uvicorn main:app --reload --host 127.0.0.1 --port 8000`
+        2. Run: `python main.py`
         3. The backend should be accessible at http://localhost:8000
         """)
         st.stop()
