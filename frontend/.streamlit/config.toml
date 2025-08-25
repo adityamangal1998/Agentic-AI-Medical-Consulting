@@ -1,0 +1,18 @@
+[theme]
+# Primary theme color (blue for medical theme)
+primaryColor = "#3b82f6"
+
+# Background color for the main content area
+backgroundColor = "#0e1117"
+
+# Background color for the sidebar
+secondaryBackgroundColor = "#262730"
+
+# Color for text
+textColor = "#fafafa"
+
+# Font family
+font = "sans serif"
+
+# Dark theme base
+base = "dark"
